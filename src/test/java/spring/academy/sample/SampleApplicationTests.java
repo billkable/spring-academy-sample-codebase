@@ -1,6 +1,5 @@
 package spring.academy.sample;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +16,6 @@ class SampleApplicationTests {
 	void contextLoads() {
 	}
 
-	@Disabled
 	@Test
 	void shouldReturnHelloWorld() {
 		String body = this.restTemplate.getForObject("/hello", String.class);
