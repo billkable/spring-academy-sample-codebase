@@ -1,0 +1,23 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+      - name: Build and test with Gradle
+        run: ./scripts/test-all-labeled-commits.sh gradle
+      - name: Build and test with Maven
+        run: ./scripts/test-all-labeled-commits.sh maven
